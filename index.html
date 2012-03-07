@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html manifest="site.appcache">
 <head>
 <title>HTML5 Jump Game</title>
 
@@ -464,6 +464,16 @@
     window.addEventListener("load",starter,true);
 
   // WIDS Workshop: Add Offline AppCache "updateready" event listener here
+window
+.applicationCache.addEventListener(
+'updateready',
+function(e) {
+var reload = window.confirm(...);
+if (reload)
+window.location.reload();
+},
+false
+);
 
 </script>
 </head>
