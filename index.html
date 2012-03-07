@@ -44,8 +44,7 @@ iDB = ev.target.result;
 };
 
 var transaction = iDB.transaction('store');
-var store =
-transaction.objectStore('store');
+var store = transaction.objectStore('store');
 var req = store.get('highscore');
 req.onsuccess = function (ev) {
 highscore = req.result;
@@ -291,6 +290,7 @@ highscore = req.result;
         // WIDS Workshop: high score is updated here. Use IndexedDB or localStorage to save it to local disk
         if (highscore < score) {
           highscore = score;
+	alert("start to write highscore");
 
 var transaction = iDB.transaction(
 'store', IDBTransaction.READ_WRITE);
@@ -301,7 +301,7 @@ key: 'highscore',
 value: highscore
 });
 req.onsuccess = function (ev) {
-
+	alert("write highscore success!");
 };
 
           document.getElementById("highscore").innerHTML = 'High Score: ' + highscore;
