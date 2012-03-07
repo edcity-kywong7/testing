@@ -47,7 +47,7 @@ var transaction = iDB.transaction('store');
 var store = transaction.objectStore('store');
 var req = store.get('highscore');
 req.onsuccess = function (ev) {
-highscore = req.result;
+highscore = parseInt(req.result);
 };
 
 
@@ -298,7 +298,7 @@ var store =
 transaction.objectStore('store');
 var req = store.put({
 key: 'highscore',
-value: highscore
+value: '' + highscore
 });
 req.onsuccess = function (ev) {
 	alert("write highscore success!");
